@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Text } from "react-native";
 import Note from "../../components/Note/Note";
 import { readNotes } from "../../repository/notesRepository";
 
@@ -8,7 +8,20 @@ const Home = () => {
 
   return (
     <View style={{ height: "100%" }}>
-      <View style={{ height: "20%", backgroundColor: "powderblue" }} />
+      <View
+        style={{ height: "20%", backgroundColor: "powderblue", paddingTop: 40 }}
+      >
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: "bold",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          Your Library
+        </Text>
+      </View>
 
       <FlatList
         data={data}
