@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 
 const Note = ({ note }) => {
   return (
@@ -11,7 +11,24 @@ const Note = ({ note }) => {
         borderRadius: 4,
       }}
     >
-      <Text>{note.title}</Text>
+      <Text
+        style={{
+          fontSize: 20,
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        {note.title}
+      </Text>
+      <Text
+        style={{
+          fontSize: 16,
+          color: "white",
+        }}
+      >
+        {note.content}
+      </Text>
+      <Image source={{ uri: note.image }} />
     </View>
   );
 };

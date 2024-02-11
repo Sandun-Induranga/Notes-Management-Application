@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, StatusBar } from "react-native";
+import { View, FlatList } from "react-native";
 import Note from "../../components/Note/Note";
 
 const Home = () => {
@@ -19,7 +19,6 @@ const Home = () => {
         renderItem={({ item }) => <Note note={item} />}
         keyExtractor={(item) => item.id}
       />
-      <StatusBar style="auto" />
     </View>
   );
 };
