@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
 import * as Speech from "expo-speech";
 import React from "react";
+import Home from "./containers/Home/Home";
 
 const App = () => {
   const _onPressSpeech = () => {
@@ -10,9 +11,8 @@ const App = () => {
 
   return (
     <View>
-      <Text>Open up App.jsx to start working on your app!</Text>
+      <Home />
       <StatusBar style="auto" />
-      <Text onPress={_onPressSpeech}>Press me to hear speech</Text>
     </View>
   );
 };
