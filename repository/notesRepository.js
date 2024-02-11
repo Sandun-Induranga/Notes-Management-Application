@@ -1,6 +1,8 @@
-import * as SQLite from "expo-sqlite";
+import { openDatabase } from "../db/db";
 
-const createNote = (db, note) => {
+const db = openDatabase();
+
+export const createNote = (note) => {
   db.transaction((tx) => {
     tx.executeSql(
       "insert into notes (image, title, content) values (?, ?, ?)",
@@ -9,15 +11,15 @@ const createNote = (db, note) => {
   });
 };
 
-const readNotes = (db, setNotes) => {
+export const readNotes = () => {
   db.transaction((tx) => {
     tx.executeSql("select * from notes", [], (_, { rows: { _array } }) => {
-      setNotes(_array);
+      return _array;
     });
   });
 };
 
-const updateNote = (db, note) => {
+export const updateNote = (note) => {
   db.transaction((tx) => {
     tx.executeSql(
       "update notes set image = ?, title = ?, content = ? where id = ?",
@@ -26,7 +28,7 @@ const updateNote = (db, note) => {
   });
 };
 
-const deleteNote = (db, id) => {
+export const deleteNote = (id) => {
   db.transaction((tx) => {
     tx.executeSql("delete from notes where id = ?", [id]);
   });
