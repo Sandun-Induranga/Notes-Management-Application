@@ -3,10 +3,10 @@ import { View, FlatList, Text, StatusBar } from "react-native";
 
 const Home = () => {
   const data = [
-    { id: "1", name: "John" },
-    { id: "2", name: "Paul" },
-    { id: "3", name: "George" },
-    { id: "4", name: "Ringo" },
+    { id: "1", image: "", title: "John", content: "John content" },
+    { id: "2", image: "", title: "Paul", content: "Paul content" },
+    { id: "3", image: "", title: "George", content: "George content" },
+    { id: "4", image: "", title: "Ringo", content: "Ringo content" },
   ];
 
   return (
@@ -15,7 +15,7 @@ const Home = () => {
 
       <FlatList
         data={data}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
+        renderItem={({ item }) => <Text>{item.title}</Text>}
         keyExtractor={(item) => item.id}
       />
       <StatusBar style="auto" />
