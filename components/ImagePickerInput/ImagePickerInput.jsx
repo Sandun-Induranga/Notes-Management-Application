@@ -1,6 +1,7 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
+import * as FileSystem from "expo-file-system";
 
 const ImagePickerInput = () => {
   const [image, setImage] = useState("");
@@ -12,21 +13,24 @@ const ImagePickerInput = () => {
       alert("Permission to access camera roll is required!");
       return;
     }
+    console.log("image");
 
     const pickerResult = await ImagePicker.launchImageLibraryAsync();
     setImage(pickerResult);
-    console.log(pickerResult);
+    const base64 = await FileSystem.readAsStringAsync(
+      pickerResult.assets[0].uri,
+      {
+        encoding: FileSystem.EncodingType.Base64,
+      }
+    );
+    console.log(base64 + "image");
   };
 
   return (
     <View>
       {image != "" && (
-        <Image source={{ uri: image.assets[0].uri }} width={100} height={100} />
+        <Image source={{ uri: image.assets[0].uri }} width={200} height={200} />
       )}
-      <Text>
-        To share a photo from your phone with a friend, just press the button
-        below!
-      </Text>
 
       <TouchableOpacity onPress={openImagePickerAsync}>
         <Text>Pick a photo</Text>
