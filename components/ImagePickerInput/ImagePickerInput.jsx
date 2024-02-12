@@ -16,20 +16,24 @@ const ImagePickerInput = () => {
     console.log("image");
 
     const pickerResult = await ImagePicker.launchImageLibraryAsync();
-    setImage(pickerResult);
+
     const base64 = await FileSystem.readAsStringAsync(
       pickerResult.assets[0].uri,
       {
         encoding: FileSystem.EncodingType.Base64,
       }
     );
-    console.log(base64 + "image");
+    setImage(base64);
   };
 
   return (
     <View>
       {image != "" && (
-        <Image source={{ uri: image.assets[0].uri }} width={200} height={200} />
+        <Image
+          source={{ uri: `data:image/png;base64,${image}` }}
+          width={200}
+          height={200}
+        />
       )}
 
       <TouchableOpacity onPress={openImagePickerAsync}>
