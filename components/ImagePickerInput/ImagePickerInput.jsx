@@ -28,16 +28,20 @@ const ImagePickerInput = () => {
 
   return (
     <View>
-      {image != "" && (
-        <Image
-          source={{ uri: `data:image/png;base64,${image}` }}
-          width={200}
-          height={200}
-        />
-      )}
-
       <TouchableOpacity onPress={openImagePickerAsync}>
-        <Text>Pick a photo</Text>
+        {image != "" ? (
+          <Image
+            source={{ uri: `data:image/png;base64,${image}` }}
+            width={200}
+            height={200}
+          />
+        ) : (
+          <Image
+            source={{ uri: `data:image/png;base64,${image}` }}
+            width={200}
+            height={200}
+          />
+        )}
       </TouchableOpacity>
     </View>
   );
