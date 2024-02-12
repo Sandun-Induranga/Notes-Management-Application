@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, Text } from "react-native";
+import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import Note from "../../components/Note/Note";
 import { readNotes } from "../../repository/notesRepository";
 
@@ -22,6 +22,19 @@ const Home = () => {
           Your Library
         </Text>
       </View>
+      <TouchableOpacity
+        style={{
+          height: 40,
+          borderRadius: 100,
+          backgroundColor: "skyblue",
+          justifyContent: "center",
+          margin: 20,
+        }}
+      >
+        <Text style={{ textAlign: "center", fontSize: 20, color: "white" }}>
+          Add Book
+        </Text>
+      </TouchableOpacity>
 
       <FlatList
         data={data}
