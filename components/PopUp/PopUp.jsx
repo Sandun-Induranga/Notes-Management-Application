@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
+import ImagePickerInput from "../ImagePickerInput/ImagePickerInput";
 
 const PopUp = ({ isVisible, onClose }) => {
   return (
@@ -17,8 +18,8 @@ const PopUp = ({ isVisible, onClose }) => {
     >
       <View style={styles.modalBackground}>
         <View style={styles.modalContainer}>
-          <Text style={styles.title}>{"title"}</Text>
-          <Text style={styles.message}>{"message"}</Text>
+          <Text style={styles.title}>Save Book</Text>
+          <Text style={styles.message}>Enter details to save book</Text>
           <TextInput
             placeholder="Title"
             style={{
@@ -30,6 +31,7 @@ const PopUp = ({ isVisible, onClose }) => {
               marginBottom: 10,
             }}
           />
+          <ImagePickerInput />
           <TextInput
             placeholder="Content"
             multiline={true}
@@ -44,7 +46,7 @@ const PopUp = ({ isVisible, onClose }) => {
             }}
           />
           <TouchableOpacity onPress={{}} style={styles.button}>
-            <Text style={styles.buttonText}>{"buttonText"}</Text>
+            <Text style={styles.buttonText}>Save Book</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -79,10 +81,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
+    width: 300,
   },
   buttonText: {
     color: "white",
     fontSize: 16,
+    textAlign: "center",
   },
 });
 

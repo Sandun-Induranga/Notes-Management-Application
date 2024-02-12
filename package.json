@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "expo": "~50.0.6",
+    "expo-image-picker": "^14.7.1",
     "expo-speech": "^11.7.0",
     "expo-sqlite": "^13.2.2",
     "expo-status-bar": "~1.11.1",
