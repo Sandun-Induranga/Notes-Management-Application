@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import Note from "../../components/Note/Note";
 import { readNotes } from "../../repository/notesRepository";
@@ -6,6 +6,7 @@ import PopUp from "../../components/PopUp/PopUp";
 
 const Home = () => {
   const data = readNotes();
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <View style={{ height: "100%" }}>
@@ -31,6 +32,9 @@ const Home = () => {
           justifyContent: "center",
           margin: 20,
         }}
+        onPress={() => {
+          setIsVisible(true);
+        }}
       >
         <Text style={{ textAlign: "center", fontSize: 20, color: "white" }}>
           Add Book
@@ -43,7 +47,7 @@ const Home = () => {
         keyExtractor={(item) => item.id}
       />
 
-      <PopUp isVisible={true} onClose={{}} />
+      <PopUp isVisible={isVisible} onClose={{}} />
     </View>
   );
 };

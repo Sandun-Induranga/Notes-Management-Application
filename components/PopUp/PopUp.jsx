@@ -19,8 +19,31 @@ const PopUp = ({ isVisible, onClose }) => {
         <View style={styles.modalContainer}>
           <Text style={styles.title}>{"title"}</Text>
           <Text style={styles.message}>{"message"}</Text>
-          <TextInput placeholder="Title" />
-          <TouchableOpacity onPress={onClose} style={styles.button}>
+          <TextInput
+            placeholder="Title"
+            style={{
+              padding: 8,
+              borderWidth: 1,
+              borderColor: "gray",
+              borderRadius: 5,
+              width: 300,
+              marginBottom: 10,
+            }}
+          />
+          <TextInput
+            placeholder="Content"
+            multiline={true}
+            style={{
+              padding: 8,
+              borderWidth: 1,
+              borderColor: "gray",
+              borderRadius: 5,
+              width: 300,
+              height: 100,
+              marginBottom: 10,
+            }}
+          />
+          <TouchableOpacity onPress={{}} style={styles.button}>
             <Text style={styles.buttonText}>{"buttonText"}</Text>
           </TouchableOpacity>
         </View>
