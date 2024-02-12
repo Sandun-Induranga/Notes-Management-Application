@@ -2,6 +2,7 @@ import React from "react";
 import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import Note from "../../components/Note/Note";
 import { readNotes } from "../../repository/notesRepository";
+import PopUp from "../../components/PopUp/PopUp";
 
 const Home = () => {
   const data = readNotes();
@@ -41,6 +42,8 @@ const Home = () => {
         renderItem={({ item }) => <Note note={item} />}
         keyExtractor={(item) => item.id}
       />
+
+      <PopUp isVisible={true} onClose={{}} />
     </View>
   );
 };

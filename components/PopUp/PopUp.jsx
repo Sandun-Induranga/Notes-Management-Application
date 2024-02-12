@@ -1,4 +1,11 @@
-import { Modal, Text, TouchableOpacity, View } from "react-native";
+import {
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  TextInput,
+} from "react-native";
 
 const PopUp = ({ isVisible, onClose }) => {
   return (
@@ -10,8 +17,9 @@ const PopUp = ({ isVisible, onClose }) => {
     >
       <View style={styles.modalBackground}>
         <View style={styles.modalContainer}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title}>{"title"}</Text>
           <Text style={styles.message}>{"message"}</Text>
+          <TextInput placeholder="Title" />
           <TouchableOpacity onPress={onClose} style={styles.button}>
             <Text style={styles.buttonText}>{"buttonText"}</Text>
           </TouchableOpacity>
