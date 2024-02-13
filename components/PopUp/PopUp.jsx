@@ -10,7 +10,7 @@ import ImagePickerInput from "../ImagePickerInput/ImagePickerInput";
 import { useAppDispatch } from "../../redux/store";
 import { notesActions } from "../../redux/noteSlice";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PopUp = ({ isVisible, onClose, isSave, note }) => {
   const dispatch = useAppDispatch();
@@ -18,20 +18,27 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
   const [content, setContent] = useState(note ? note.content : "");
   const selectedImage = useSelector((state) => state.notes.selectedImage);
 
+  useEffect(() => {
+    if (!isSave) {
+      setTitle(note.title);
+      setContent(note.content);
+    }
+  }, []);
+
   const handleSubmit = () => {
     if (isSave) {
       dispatch(
         notesActions.addNote({
-          title,
-          content,
+          title: title,
+          content: content,
           image: selectedImage,
         })
       );
     } else {
       dispatch(
-        notesActions.addNote({
-          title,
-          content,
+        notesActions.updateNotes({
+          title: title,
+          content: content,
           image: selectedImage,
         })
       );
@@ -51,6 +58,7 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
           <Text style={styles.message}>Enter details to save book</Text>
           <TextInput
             placeholder="Title"
+            value={title}
             onChangeText={(text) => setTitle(text)}
             style={{
               padding: 8,
@@ -64,6 +72,7 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
           <ImagePickerInput />
           <TextInput
             placeholder="Content"
+            value={content}
             onChangeText={(text) => setContent(text)}
             multiline={true}
             style={{
@@ -78,7 +87,7 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
           />
           <TouchableOpacity
             onPress={() => {
-              saveNote();
+              handleSubmit();
               onClose();
             }}
             style={styles.button}

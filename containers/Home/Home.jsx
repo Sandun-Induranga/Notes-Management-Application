@@ -58,7 +58,7 @@ const Home = () => {
         keyExtractor={(item) => item.id}
       />
 
-      <PopUp isVisible={isVisible} onClose={onClose} />
+      <PopUp isVisible={isVisible} onClose={onClose} isSave={true} />
     </View>
   );
 };

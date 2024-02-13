@@ -1,8 +1,18 @@
 import { Text, Image, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import PopUp from "../PopUp/PopUp";
+import { useState } from "react";
+import { useAppDispatch } from "../../redux/store";
+import { notesActions } from "../../redux/noteSlice";
 
 const Note = ({ note }) => {
   const navigation = useNavigation();
+  const [isVisible, setIsVisible] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const onClose = () => {
+    setIsVisible(false);
+  };
 
   return (
     <View
@@ -39,7 +49,12 @@ const Note = ({ note }) => {
       />
 
       <View style={{ flexDirection: "row", gap: 10 }}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(notesActions.selectImage(note.image));
+            setIsVisible(true);
+          }}
+        >
           <Text
             style={{
               fontSize: 16,
@@ -49,6 +64,13 @@ const Note = ({ note }) => {
             Edit
           </Text>
         </TouchableOpacity>
+        <PopUp
+          isVisible={isVisible}
+          note={note}
+          onClose={onClose}
+          isSave={false}
+        />
+
         <TouchableOpacity onPress={() => {}}>
           <Text
             style={{

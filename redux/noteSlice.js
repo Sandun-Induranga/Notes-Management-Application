@@ -22,7 +22,7 @@ export const noteSlice = createSlice({
       state.notes = readNotes();
       alert("Note added successfully");
     },
-    updateNote: (state, action) => {
+    updateNotes: (state, action) => {
       updateNote({
         title: action.payload.title,
         content: action.payload.content,
@@ -44,8 +44,6 @@ export const noteSlice = createSlice({
     },
     selectImage: (state, action) => {
       state.selectedImage = action.payload;
-      console.log(state.selectedImage);
-      alert("Image selected successfully");
     },
   },
 });

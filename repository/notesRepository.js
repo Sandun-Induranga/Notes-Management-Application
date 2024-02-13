@@ -25,8 +25,8 @@ export const updateNote = (note) => {
   db.transaction((tx) => {
     tx.executeSql("update notes set image = ?, content = ? where title = ?", [
       note.image,
-      note.title,
       note.content,
+      note.title,
     ]);
   });
 };
