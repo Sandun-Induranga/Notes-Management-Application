@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
-import { View, Text, Image } from "react-native";
+import { Text, Image, TouchableOpacity } from "react-native";
 
 const Note = ({ note }) => {
-  useEffect(() => {
-    console.log("come");
-  }, []);
   return (
-    <View
+    <TouchableOpacity
       style={{
         backgroundColor: "white",
         padding: 4,
@@ -18,6 +14,9 @@ const Note = ({ note }) => {
         gap: 10,
         padding: 10,
         marginHorizontal: 50,
+      }}
+      onPress={() => {
+        console.log("Note clicked");
       }}
     >
       <Text
@@ -40,7 +39,7 @@ const Note = ({ note }) => {
           color: "white",
         }}
       ></Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
