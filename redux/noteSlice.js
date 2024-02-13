@@ -1,4 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {
+  createNote,
+  deleteNote,
+  readNotes,
+} from "../repository/notesRepository";
 
 export const noteSlice = createSlice({
   name: "note",
@@ -8,13 +13,19 @@ export const noteSlice = createSlice({
   },
   reducers: {
     addNote: (state, action) => {
-      state.notes.push(action.payload);
+      createNote({
+        title: action.payload.title,
+        content: action.payload.content,
+        image: action.payload.image,
+      });
+      state.notes = readNotes();
     },
     deleteNote: (state, action) => {
-      state.notes = state.notes.filter((note) => note.id !== action.payload);
+      deleteNote(action.payload);
+      state.notes = readNotes();
     },
     fetchNotes: (state, action) => {
-      state.notes = action.payload;
+      state.notes = readNotes();
     },
     selectImage: (state, action) => {
       state.selectedImage = action.payload;
