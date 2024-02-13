@@ -31,8 +31,8 @@ export const updateNote = (note) => {
   });
 };
 
-export const deleteNote = (id) => {
+export const deleteNote = (title) => {
   db.transaction((tx) => {
-    tx.executeSql("delete from notes where id = ?", [id]);
+    tx.executeSql("delete from notes where title = ?", [title]);
   });
 };

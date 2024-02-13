@@ -71,7 +71,11 @@ const Note = ({ note }) => {
           isSave={false}
         />
 
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(notesActions.deleteNote(note.title));
+          }}
+        >
           <Text
             style={{
               fontSize: 16,
