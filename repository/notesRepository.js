@@ -17,7 +17,6 @@ export const readNotes = () => {
   db.transaction((tx) => {
     tx.executeSql("select * from notes", [], (_, { rows: { _array } }) => {
       store.dispatch(notesActions.setNotes(_array));
-      console.log(store.getState().notes.notes);
     });
   });
 };

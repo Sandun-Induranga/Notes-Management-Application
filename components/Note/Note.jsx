@@ -59,7 +59,11 @@ const Note = ({ note }) => {
             Delete
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Note Details", { note: note });
+          }}
+        >
           <Text
             style={{
               fontSize: 16,

@@ -1,8 +1,14 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import * as Speech from "expo-speech";
 
 const NoteDetail = ({ route }) => {
   const { note } = route.params;
+
+  const _onPressSpeech = () => {
+    Speech.speak(note.content);
+  };
+
   return (
     <View
       style={{
@@ -38,6 +44,20 @@ const NoteDetail = ({ route }) => {
       >
         {note.content}
       </Text>
+      <TouchableOpacity
+        onPress={() => {
+          _onPressSpeech();
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            color: "gray",
+          }}
+        >
+          Speak
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
