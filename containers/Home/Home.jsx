@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   return (
-    <View style={{ height: "100%" }}>
+    <View style={{ height: "100%", backgroundColor: "#e5e5e5" }}>
       <View
         style={{ height: "20%", backgroundColor: "powderblue", paddingTop: 40 }}
       >

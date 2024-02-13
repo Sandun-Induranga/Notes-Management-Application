@@ -8,7 +8,7 @@ const Note = ({ note }) => {
   return (
     <View
       style={{
-        backgroundColor: "powderblue",
+        backgroundColor: "white",
         padding: 4,
         margin: 20,
         borderRadius: 4,
@@ -17,6 +17,7 @@ const Note = ({ note }) => {
         alignItems: "center",
         gap: 10,
         padding: 10,
+        marginHorizontal: 50,
       }}
     >
       <Text
