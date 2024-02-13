@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const noteSlice = createSlice({
-  name: "notes",
+  name: "note",
   initialState: {
     notes: [],
     selectedImage: "",
@@ -16,5 +16,11 @@ export const noteSlice = createSlice({
     fetchNotes: (state, action) => {
       state.notes = action.payload;
     },
+    selectImage: (state, action) => {
+      state.selectedImage = action.payload;
+      console.log(state.selectedImage);
+    },
   },
 });
+
+export const { reducer: notesReducer, actions: notesActions } = noteSlice;

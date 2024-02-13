@@ -1,11 +1,15 @@
 import { Image, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { useState } from "react";
 import * as FileSystem from "expo-file-system";
 import uploadImage from "../../assets/upload.jpg";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
+import { noteSlice } from "../../redux/noteSlice";
 
 const ImagePickerInput = () => {
-  const [image, setImage] = useState("");
+  const dispatch = useAppDispatch();
+  const selectedImage = useSelector((state) => state.notes.selectedImage);
+
   const openImagePickerAsync = async () => {
     const permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -24,15 +28,15 @@ const ImagePickerInput = () => {
         encoding: FileSystem.EncodingType.Base64,
       }
     );
-    setImage(base64);
+    dispatch(noteSlice.actions.selectImage(base64));
   };
 
   return (
     <View>
       <TouchableOpacity onPress={openImagePickerAsync}>
-        {image != "" ? (
+        {selectedImage != "" ? (
           <Image
-            source={{ uri: `data:image/png;base64,${image}` }}
+            source={{ uri: `data:image/png;base64,${selectedImage}` }}
             style={{
               width: 300,
               height: 300,
