@@ -27,7 +27,10 @@ export const noteSlice = createSlice({
       alert("Note deleted successfully");
     },
     fetchNotes: (state, action) => {
-      state.notes = readNotes();
+      readNotes();
+    },
+    setNotes: (state, action) => {
+      state.notes = action.payload;
     },
     selectImage: (state, action) => {
       state.selectedImage = action.payload;

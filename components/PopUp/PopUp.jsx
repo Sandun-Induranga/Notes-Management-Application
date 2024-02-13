@@ -66,7 +66,13 @@ const PopUp = ({ isVisible, onClose }) => {
               marginBottom: 10,
             }}
           />
-          <TouchableOpacity onPress={{}} style={styles.button}>
+          <TouchableOpacity
+            onPress={() => {
+              saveNote();
+              onClose();
+            }}
+            style={styles.button}
+          >
             <Text style={styles.buttonText}>Save Book</Text>
           </TouchableOpacity>
         </View>

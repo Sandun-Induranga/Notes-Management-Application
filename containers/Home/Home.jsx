@@ -3,14 +3,21 @@ import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import Note from "../../components/Note/Note";
 import PopUp from "../../components/PopUp/PopUp";
 import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
+import { noteSlice } from "../../redux/noteSlice";
 
 const Home = () => {
-  const notes = useSelector((state) => state.notes);
+  const dispatch = useAppDispatch();
+  const notes = useSelector((state) => state.notes.notes);
   const [isVisible, setIsVisible] = useState(false);
 
-  // useEffect(() => {
+  useEffect(() => {
+    dispatch(noteSlice.actions.fetchNotes());
+  }, []);
 
-  // });
+  const onClose = () => {
+    setIsVisible(false);
+  };
 
   return (
     <View style={{ height: "100%" }}>
@@ -51,7 +58,7 @@ const Home = () => {
         keyExtractor={(item) => item.id}
       />
 
-      <PopUp isVisible={isVisible} onClose={{}} />
+      <PopUp isVisible={isVisible} onClose={onClose} />
     </View>
   );
 };

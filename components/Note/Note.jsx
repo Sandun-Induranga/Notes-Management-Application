@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image } from "react-native";
 
 const Note = ({ note }) => {
+  useEffect(() => {
+    console.log("come");
+  }, []);
   return (
     <View
       style={{
@@ -27,6 +30,14 @@ const Note = ({ note }) => {
         }}
       >
         {note.content}
+      </Text>
+      <Text
+        style={{
+          fontSize: 16,
+          color: "white",
+        }}
+      >
+        {note.image}
       </Text>
       <Image source={{ uri: note.image }} />
     </View>

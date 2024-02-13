@@ -1,4 +1,6 @@
 import { openDatabase } from "../db/db";
+import store from "../redux/store";
+import { notesActions } from "../redux/noteSlice";
 
 const db = openDatabase();
 
@@ -14,7 +16,8 @@ export const createNote = (note) => {
 export const readNotes = () => {
   db.transaction((tx) => {
     tx.executeSql("select * from notes", [], (_, { rows: { _array } }) => {
-      return _array;
+      store.dispatch(notesActions.setNotes(_array));
+      console.log(store.getState().notes.notes);
     });
   });
 };
