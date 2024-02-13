@@ -1,6 +1,9 @@
 import { Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const Note = ({ note }) => {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity
       style={{
@@ -17,6 +20,7 @@ const Note = ({ note }) => {
       }}
       onPress={() => {
         console.log("Note clicked");
+        navigation.navigate("NoteDetail", { note: note });
       }}
     >
       <Text

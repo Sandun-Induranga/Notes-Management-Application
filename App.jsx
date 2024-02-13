@@ -14,8 +14,8 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Home />
       <Routes>
+        <Home />
         {/* <View> */}
         <StatusBar style="auto" />
         {/* </View> */}
