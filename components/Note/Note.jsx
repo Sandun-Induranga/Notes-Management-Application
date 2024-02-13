@@ -37,12 +37,6 @@ const Note = ({ note }) => {
         width={150}
         height={150}
       />
-      <Text
-        style={{
-          fontSize: 16,
-          color: "white",
-        }}
-      ></Text>
     </TouchableOpacity>
   );
 };
