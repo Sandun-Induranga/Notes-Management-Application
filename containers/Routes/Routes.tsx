@@ -20,7 +20,7 @@ const Routes = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="NoteDetail"
+          name="Note Details"
           component={NoteDetail}
           initialParams={{ note }}
         />

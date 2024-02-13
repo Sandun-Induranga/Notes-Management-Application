@@ -10,7 +10,6 @@ const NoteDetail = ({ route }) => {
         margin: 20,
         borderRadius: 4,
         flex: 1,
-        // justifyContent: "center",
         alignItems: "center",
         gap: 40,
         padding: 10,

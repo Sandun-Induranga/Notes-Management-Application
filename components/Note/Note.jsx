@@ -20,7 +20,7 @@ const Note = ({ note }) => {
       }}
       onPress={() => {
         console.log("Note clicked");
-        navigation.navigate("NoteDetail", { note: note });
+        navigation.navigate("Note Details", { note: note });
       }}
     >
       <Text
