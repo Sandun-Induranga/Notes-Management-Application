@@ -7,8 +7,27 @@ import {
   TextInput,
 } from "react-native";
 import ImagePickerInput from "../ImagePickerInput/ImagePickerInput";
+import { useAppDispatch } from "../../redux/store";
+import { notesActions } from "../../redux/noteSlice";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const PopUp = ({ isVisible, onClose }) => {
+  const dispatch = useAppDispatch();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const selectedImage = useSelector((state) => state.notes.selectedImage);
+
+  const saveNote = () => {
+    dispatch(
+      notesActions.addNote({
+        title,
+        content,
+        image: selectedImage,
+      })
+    );
+  };
+
   return (
     <Modal
       animationType="fade"
