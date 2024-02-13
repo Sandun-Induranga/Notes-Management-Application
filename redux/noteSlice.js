@@ -4,6 +4,7 @@ export const noteSlice = createSlice({
   name: "notes",
   initialState: {
     notes: [],
+    selectedImage: "",
   },
   reducers: {
     addNote: (state, action) => {
