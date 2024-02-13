@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import Note from "../../components/Note/Note";
-import { readNotes } from "../../repository/notesRepository";
 import PopUp from "../../components/PopUp/PopUp";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const data = readNotes();
+  const notes = useSelector((state) => state.notes);
   const [isVisible, setIsVisible] = useState(false);
+
+  // useEffect(() => {
+
+  // });
 
   return (
     <View style={{ height: "100%" }}>
@@ -42,7 +46,7 @@ const Home = () => {
       </TouchableOpacity>
 
       <FlatList
-        data={data}
+        data={notes}
         renderItem={({ item }) => <Note note={item} />}
         keyExtractor={(item) => item.id}
       />

@@ -19,10 +19,12 @@ export const noteSlice = createSlice({
         image: action.payload.image,
       });
       state.notes = readNotes();
+      alert("Note added successfully");
     },
     deleteNote: (state, action) => {
       deleteNote(action.payload);
       state.notes = readNotes();
+      alert("Note deleted successfully");
     },
     fetchNotes: (state, action) => {
       state.notes = readNotes();
@@ -30,6 +32,7 @@ export const noteSlice = createSlice({
     selectImage: (state, action) => {
       state.selectedImage = action.payload;
       console.log(state.selectedImage);
+      alert("Image selected successfully");
     },
   },
 });
