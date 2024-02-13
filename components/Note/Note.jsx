@@ -1,11 +1,11 @@
-import { Text, Image, TouchableOpacity } from "react-native";
+import { Text, Image, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Note = ({ note }) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity
+    <View
       style={{
         backgroundColor: "white",
         padding: 4,
@@ -37,7 +37,40 @@ const Note = ({ note }) => {
         width={150}
         height={150}
       />
-    </TouchableOpacity>
+
+      <View style={{ flexDirection: "row", gap: 10 }}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text
+            style={{
+              fontSize: 16,
+              color: "gray",
+            }}
+          >
+            Edit
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <Text
+            style={{
+              fontSize: 16,
+              color: "gray",
+            }}
+          >
+            Delete
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <Text
+            style={{
+              fontSize: 16,
+              color: "gray",
+            }}
+          >
+            View
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
