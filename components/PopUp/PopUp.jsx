@@ -41,6 +41,7 @@ const PopUp = ({ isVisible, onClose }) => {
           <Text style={styles.message}>Enter details to save book</Text>
           <TextInput
             placeholder="Title"
+            onChangeText={(text) => setTitle(text)}
             style={{
               padding: 8,
               borderWidth: 1,
@@ -53,6 +54,7 @@ const PopUp = ({ isVisible, onClose }) => {
           <ImagePickerInput />
           <TextInput
             placeholder="Content"
+            onChangeText={(text) => setContent(text)}
             multiline={true}
             style={{
               padding: 8,
