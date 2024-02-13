@@ -34,31 +34,21 @@ const ImagePickerInput = () => {
   return (
     <View>
       <TouchableOpacity onPress={openImagePickerAsync}>
-        {selectedImage != "" ? (
-          <Image
-            source={{ uri: `data:image/png;base64,${selectedImage}` }}
-            style={{
-              width: 300,
-              height: 300,
-              borderColor: "gray",
-              borderWidth: 1,
-              borderRadius: 5,
-              marginBottom: 10,
-            }}
-          />
-        ) : (
-          <Image
-            source={uploadImage}
-            style={{
-              width: 300,
-              height: 300,
-              borderColor: "gray",
-              borderWidth: 1,
-              borderRadius: 5,
-              marginBottom: 10,
-            }}
-          />
-        )}
+        <Image
+          source={
+            selectedImage != ""
+              ? { uri: `data:image/png;base64,${selectedImage}` }
+              : uploadImage
+          }
+          style={{
+            width: 300,
+            height: 300,
+            borderColor: "gray",
+            borderWidth: 1,
+            borderRadius: 5,
+            marginBottom: 10,
+          }}
+        />
       </TouchableOpacity>
     </View>
   );
