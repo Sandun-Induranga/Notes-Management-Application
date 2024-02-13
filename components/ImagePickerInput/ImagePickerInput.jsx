@@ -2,6 +2,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 import * as FileSystem from "expo-file-system";
+import uploadImage from "../../assets/upload.jpg";
 
 const ImagePickerInput = () => {
   const [image, setImage] = useState("");
@@ -32,14 +33,26 @@ const ImagePickerInput = () => {
         {image != "" ? (
           <Image
             source={{ uri: `data:image/png;base64,${image}` }}
-            width={200}
-            height={200}
+            style={{
+              width: 300,
+              height: 300,
+              borderColor: "gray",
+              borderWidth: 1,
+              borderRadius: 5,
+              marginBottom: 10,
+            }}
           />
         ) : (
           <Image
-            source={{ uri: `data:image/png;base64,${image}` }}
-            width={200}
-            height={200}
+            source={uploadImage}
+            style={{
+              width: 300,
+              height: 300,
+              borderColor: "gray",
+              borderWidth: 1,
+              borderRadius: 5,
+              marginBottom: 10,
+            }}
           />
         )}
       </TouchableOpacity>
