@@ -23,10 +23,11 @@ export const readNotes = () => {
 
 export const updateNote = (note) => {
   db.transaction((tx) => {
-    tx.executeSql(
-      "update notes set image = ?, title = ?, content = ? where id = ?",
-      [note.image, note.title, note.content, note.id]
-    );
+    tx.executeSql("update notes set image = ?, content = ? where title = ?", [
+      note.image,
+      note.title,
+      note.content,
+    ]);
   });
 };
 

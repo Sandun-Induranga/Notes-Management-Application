@@ -12,20 +12,30 @@ import { notesActions } from "../../redux/noteSlice";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
-const PopUp = ({ isVisible, onClose }) => {
+const PopUp = ({ isVisible, onClose, isSave, note }) => {
   const dispatch = useAppDispatch();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(note ? note.title : "");
+  const [content, setContent] = useState(note ? note.content : "");
   const selectedImage = useSelector((state) => state.notes.selectedImage);
 
-  const saveNote = () => {
-    dispatch(
-      notesActions.addNote({
-        title,
-        content,
-        image: selectedImage,
-      })
-    );
+  const handleSubmit = () => {
+    if (isSave) {
+      dispatch(
+        notesActions.addNote({
+          title,
+          content,
+          image: selectedImage,
+        })
+      );
+    } else {
+      dispatch(
+        notesActions.addNote({
+          title,
+          content,
+          image: selectedImage,
+        })
+      );
+    }
   };
 
   return (
