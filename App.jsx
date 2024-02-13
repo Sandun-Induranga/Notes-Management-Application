@@ -5,6 +5,7 @@ import React from "react";
 import Home from "./containers/Home/Home";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Routes from "./containers/Routes/Routes";
 
 const App = () => {
   const _onPressSpeech = () => {
@@ -13,10 +14,12 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <View>
-        <Home />
+      <Home />
+      <Routes>
+        {/* <View> */}
         <StatusBar style="auto" />
-      </View>
+        {/* </View> */}
+      </Routes>
     </Provider>
   );
 };
