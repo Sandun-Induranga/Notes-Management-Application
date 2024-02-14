@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, FlatList, Text, TouchableOpacity } from "react-native";
+import { View, FlatList, Text, TouchableOpacity, Image } from "react-native";
 import Note from "../../components/Note/Note";
 import PopUp from "../../components/PopUp/PopUp";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
 import { noteSlice } from "../../redux/noteSlice";
+import topBackground from "../../assets/top-background.jpg";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -22,11 +23,22 @@ const Home = () => {
   return (
     <View style={{ height: "100%", backgroundColor: "#e5e5e5" }}>
       <View
-        style={{ height: "20%", backgroundColor: "powderblue", paddingTop: 40 }}
+        style={{
+          height: "25%",
+          paddingTop: 40,
+        }}
       >
+        <Image
+          source={topBackground}
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+          }}
+        />
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 30,
             fontWeight: "bold",
             color: "white",
             textAlign: "center",
@@ -41,7 +53,7 @@ const Home = () => {
           borderRadius: 100,
           backgroundColor: "skyblue",
           justifyContent: "center",
-          margin: 20,
+          marginHorizontal: 20,
         }}
         onPress={() => {
           setIsVisible(true);
