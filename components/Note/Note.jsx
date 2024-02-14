@@ -4,6 +4,9 @@ import PopUp from "../PopUp/PopUp";
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/store";
 import { notesActions } from "../../redux/noteSlice";
+import editIcon from "../../assets/edit-icon.png";
+import deleteIcon from "../../assets/delete-icon.png";
+import viewIcon from "../../assets/view-icon.png";
 
 const Note = ({ note }) => {
   const navigation = useNavigation();
@@ -26,7 +29,7 @@ const Note = ({ note }) => {
         alignItems: "center",
         gap: 10,
         padding: 10,
-        marginHorizontal: 50,
+        // marginHorizontal: 80,
       }}
       onPress={() => {
         console.log("Note clicked");
@@ -44,25 +47,22 @@ const Note = ({ note }) => {
       </Text>
       <Image
         source={{ uri: `data:image/png;base64,${note.image}` }}
-        width={150}
+        width={200}
         height={150}
+        style={{
+          borderRadius: 4,
+          marginBottom: 10,
+        }}
       />
 
-      <View style={{ flexDirection: "row", gap: 10 }}>
+      <View style={{ flexDirection: "row", gap: 40 }}>
         <TouchableOpacity
           onPress={() => {
             dispatch(notesActions.selectImage(note.image));
             setIsVisible(true);
           }}
         >
-          <Text
-            style={{
-              fontSize: 16,
-              color: "gray",
-            }}
-          >
-            Edit
-          </Text>
+          <Image source={editIcon} width={20} height={20} />
         </TouchableOpacity>
         <PopUp
           isVisible={isVisible}
@@ -70,34 +70,19 @@ const Note = ({ note }) => {
           onClose={onClose}
           isSave={false}
         />
-
         <TouchableOpacity
           onPress={() => {
             dispatch(notesActions.deleteNote(note.title));
           }}
         >
-          <Text
-            style={{
-              fontSize: 16,
-              color: "gray",
-            }}
-          >
-            Delete
-          </Text>
+          <Image source={deleteIcon} width={20} height={20} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Note Details", { note: note });
           }}
         >
-          <Text
-            style={{
-              fontSize: 16,
-              color: "gray",
-            }}
-          >
-            View
-          </Text>
+          <Image source={viewIcon} width={20} height={20} />
         </TouchableOpacity>
       </View>
     </View>
