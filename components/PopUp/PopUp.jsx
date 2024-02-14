@@ -5,12 +5,14 @@ import {
   View,
   StyleSheet,
   TextInput,
+  Image,
 } from "react-native";
 import ImagePickerInput from "../ImagePickerInput/ImagePickerInput";
 import { useAppDispatch } from "../../redux/store";
 import { notesActions } from "../../redux/noteSlice";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import closeIcon from "../../assets/close-icon.png";
 
 const PopUp = ({ isVisible, onClose, isSave, note }) => {
   const dispatch = useAppDispatch();
@@ -95,6 +97,16 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
             <Text style={styles.buttonText}>Save Book</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          onPress={onClose}
+          style={{
+            position: "absolute",
+            top: 90,
+            right: 40,
+          }}
+        >
+          <Image source={closeIcon} width={24} height={24} />
+        </TouchableOpacity>
       </View>
     </Modal>
   );
