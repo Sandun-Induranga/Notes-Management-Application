@@ -14,6 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(noteSlice.actions.fetchNotes());
+    dispatch(noteSlice.actions.selectImage(""));
   }, []);
 
   const onClose = () => {

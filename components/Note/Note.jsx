@@ -15,6 +15,7 @@ const Note = ({ note }) => {
 
   const onClose = () => {
     setIsVisible(false);
+    dispatch(noteSlice.actions.selectImage(""));
   };
 
   return (
