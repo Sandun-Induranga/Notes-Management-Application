@@ -15,7 +15,7 @@ const Note = ({ note }) => {
 
   const onClose = () => {
     setIsVisible(false);
-    dispatch(noteSlice.actions.selectImage(""));
+    dispatch(notesActions.selectImage(""));
   };
 
   return (
@@ -30,10 +30,8 @@ const Note = ({ note }) => {
         alignItems: "center",
         gap: 10,
         padding: 10,
-        // marginHorizontal: 80,
       }}
       onPress={() => {
-        console.log("Note clicked");
         navigation.navigate("Note Details", { note: note });
       }}
     >

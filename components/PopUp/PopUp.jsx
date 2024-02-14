@@ -101,8 +101,9 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
           onPress={onClose}
           style={{
             position: "absolute",
-            top: 90,
-            right: 40,
+            top: 20,
+            right: 20,
+            backgroundColor: "white",
           }}
         >
           <Image source={closeIcon} width={24} height={24} />

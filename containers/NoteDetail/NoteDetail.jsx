@@ -19,7 +19,7 @@ const NoteDetail = ({ route }) => {
         alignItems: "center",
         gap: 40,
         padding: 10,
-        marginHorizontal: 50,
+        marginHorizontal: 10,
       }}
     >
       <Text
