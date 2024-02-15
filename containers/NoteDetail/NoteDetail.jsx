@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as Speech from "expo-speech";
+import speakerImage from "../../assets/speaker.png";
 
 const NoteDetail = ({ route }) => {
   const { note } = route.params;
@@ -33,31 +34,30 @@ const NoteDetail = ({ route }) => {
       </Text>
       <Image
         source={{ uri: `data:image/png;base64,${note.image}` }}
-        width={150}
-        height={150}
-      />
-      <Text
         style={{
-          fontSize: 16,
-          color: "gray",
+          width: 250,
+          height: 200,
+          borderRadius: 10,
+          padding: 10,
+          borderWidth: 1,
+          borderColor: "gray",
         }}
-      >
-        {note.content}
-      </Text>
+      />
       <TouchableOpacity
         onPress={() => {
           _onPressSpeech();
         }}
       >
-        <Text
-          style={{
-            fontSize: 16,
-            color: "gray",
-          }}
-        >
-          Speak
-        </Text>
+        <Image source={speakerImage} style={{ width: 50, height: 50 }} />
       </TouchableOpacity>
+      <Text
+        style={{
+          fontSize: 18,
+          color: "gray",
+        }}
+      >
+        {note.content}
+      </Text>
     </View>
   );
 };
