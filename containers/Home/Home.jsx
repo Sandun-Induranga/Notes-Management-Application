@@ -10,6 +10,7 @@ import topBackground from "../../assets/top-background.jpg";
 const Home = () => {
   const dispatch = useAppDispatch();
   const notes = useSelector((state) => state.notes.notes);
+  const nickname = useSelector((state) => state.notes.nickname);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -46,6 +47,15 @@ const Home = () => {
           }}
         >
           Your Library
+        </Text>
+        <Text
+          style={{
+            fontSize: 20,
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          {nickname}
         </Text>
       </View>
       <TouchableOpacity
