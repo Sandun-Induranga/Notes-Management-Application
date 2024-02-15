@@ -6,12 +6,15 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
 import { noteSlice } from "../../redux/noteSlice";
 import topBackground from "../../assets/top-background.jpg";
+import logoutIcon from "../../assets/logout.png";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
   const dispatch = useAppDispatch();
   const notes = useSelector((state) => state.notes.notes);
   const nickname = useSelector((state) => state.notes.nickname);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigation();
 
   useEffect(() => {
     dispatch(noteSlice.actions.fetchNotes());
@@ -57,6 +60,27 @@ const Home = () => {
         >
           {"Hi, " + nickname}
         </Text>
+        <TouchableOpacity
+          style={{
+            position: "absolute",
+            top: 50,
+            right: 20,
+          }}
+          onPress={() => {
+            dispatch(noteSlice.actions.setNickname(""));
+            navigate.navigate("SignIn");
+          }}
+        >
+          <Image
+            source={logoutIcon}
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: "white",
+              alignSelf: "center",
+            }}
+          />
+        </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={{

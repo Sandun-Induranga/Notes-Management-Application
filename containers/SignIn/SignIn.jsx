@@ -1,4 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
 import { noteSlice } from "../../redux/noteSlice";
@@ -9,13 +15,14 @@ const SignIn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigation();
   return (
-    <View
+    <ImageBackground
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#e3e3e3",
       }}
+      source={require("../../assets/signin-background.jpg")}
     >
       <View
         style={{
@@ -25,8 +32,8 @@ const SignIn = () => {
           height: 300,
           padding: 20,
           elevation: 1,
-          borderRadius: 5,
-          backgroundColor: "white",
+          borderRadius: 10,
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
         }}
       >
         <Text
@@ -70,7 +77,7 @@ const SignIn = () => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 
