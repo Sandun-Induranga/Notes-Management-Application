@@ -7,6 +7,7 @@ const NoteDetail = ({ route }) => {
   const { note } = route.params;
 
   const _onPressSpeech = () => {
+    Speech.stop();
     Speech.speak(note.content);
   };
 
@@ -25,7 +26,7 @@ const NoteDetail = ({ route }) => {
     >
       <Text
         style={{
-          fontSize: 20,
+          fontSize: 24,
           fontWeight: "bold",
           color: "gray",
         }}
@@ -35,7 +36,7 @@ const NoteDetail = ({ route }) => {
       <Image
         source={{ uri: `data:image/png;base64,${note.image}` }}
         style={{
-          width: 250,
+          width: 330,
           height: 200,
           borderRadius: 10,
           padding: 10,

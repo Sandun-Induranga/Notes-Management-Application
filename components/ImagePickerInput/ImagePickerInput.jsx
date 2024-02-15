@@ -41,7 +41,7 @@ const ImagePickerInput = () => {
           style={{
             width: 300,
             height: 300,
-            borderColor: "gray",
+            borderColor: "#e3e3e3",
             borderWidth: 1,
             borderRadius: 5,
             marginBottom: 10,

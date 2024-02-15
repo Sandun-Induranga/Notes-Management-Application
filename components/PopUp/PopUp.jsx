@@ -56,8 +56,10 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
     >
       <View style={styles.modalBackground}>
         <View style={styles.modalContainer}>
-          <Text style={styles.title}>Save Book</Text>
-          <Text style={styles.message}>Enter details to save book</Text>
+          <Text style={styles.title}>{isSave ? "Save" : "Update"} Book</Text>
+          <Text style={styles.message}>
+            Enter details to {isSave ? "save" : "update"} book
+          </Text>
           <TextInput
             placeholder="Title"
             value={title}
@@ -65,7 +67,7 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
             style={{
               padding: 8,
               borderWidth: 1,
-              borderColor: "gray",
+              borderColor: "#e3e3e3",
               borderRadius: 5,
               width: 300,
               marginBottom: 10,
@@ -80,7 +82,7 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
             style={{
               padding: 8,
               borderWidth: 1,
-              borderColor: "gray",
+              borderColor: "#e3e3e3",
               borderRadius: 5,
               width: 300,
               height: 100,
@@ -94,7 +96,9 @@ const PopUp = ({ isVisible, onClose, isSave, note }) => {
             }}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>Save Book</Text>
+            <Text style={styles.buttonText}>
+              {isSave ? "Save" : "Update"} Note
+            </Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity
@@ -136,7 +140,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "#007AFF",
+    backgroundColor: "lightblue",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
