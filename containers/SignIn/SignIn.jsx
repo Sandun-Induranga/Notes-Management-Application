@@ -25,6 +25,20 @@ const SignIn = () => {
           marginBottom: 10,
         }}
       />
+      <TouchableOpacity
+        onPress={() => {}}
+        style={{
+          backgroundColor: "#007AFF",
+          paddingHorizontal: 20,
+          paddingVertical: 10,
+          borderRadius: 5,
+          width: 300,
+        }}
+      >
+        <Text style={{ color: "white", fontSize: 16, textAlign: "center" }}>
+          Save Book
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
