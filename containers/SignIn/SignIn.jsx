@@ -1,44 +1,71 @@
-import { View, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
+import { noteSlice } from "../../redux/noteSlice";
 
 const SignIn = () => {
+  const nickname = useSelector((state) => state.notes.nickname);
+  const dispatch = useAppDispatch();
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#e3e3e3",
       }}
     >
-      <Text>Sign In</Text>
-      <TextInput
-        placeholder="Content"
-        value={content}
-        onChangeText={(text) => setContent(text)}
-        multiline={true}
+      <View
         style={{
-          padding: 8,
-          borderWidth: 1,
-          borderColor: "gray",
+          justifyContent: "center",
+          alignItems: "center",
+          width: 330,
+          height: 300,
+          padding: 20,
+          elevation: 1,
           borderRadius: 5,
-          width: 300,
-          height: 100,
-          marginBottom: 10,
-        }}
-      />
-      <TouchableOpacity
-        onPress={() => {}}
-        style={{
-          backgroundColor: "#007AFF",
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-          borderRadius: 5,
-          width: 300,
+          backgroundColor: "white",
         }}
       >
-        <Text style={{ color: "white", fontSize: 16, textAlign: "center" }}>
-          Save Book
+        <Text
+          style={{
+            fontSize: 34,
+            marginBottom: 20,
+            color: "gray",
+          }}
+        >
+          Sign In
         </Text>
-      </TouchableOpacity>
+        <TextInput
+          placeholder="Nickname"
+          value={nickname}
+          onChangeText={(text) => {
+            dispatch(noteSlice.actions.setNickname(text));
+          }}
+          style={{
+            padding: 8,
+            borderWidth: 1,
+            borderColor: "#e3e3e3",
+            borderRadius: 5,
+            width: "100%",
+            marginBottom: 10,
+          }}
+        />
+        <TouchableOpacity
+          onPress={() => {}}
+          style={{
+            backgroundColor: "lightblue",
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+            borderRadius: 5,
+            width: "100%",
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 16, textAlign: "center" }}>
+            Continue
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

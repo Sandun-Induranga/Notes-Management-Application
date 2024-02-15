@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import NoteDetail from "../NoteDetail/NoteDetail";
 import Home from "../Home/Home";
+import SignIn from "../SignIn/SignIn";
 
 const Stack = createStackNavigator();
 const Routes = () => {
@@ -13,7 +14,12 @@ const Routes = () => {
   };
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="SignIn">
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Home"
           component={Home}

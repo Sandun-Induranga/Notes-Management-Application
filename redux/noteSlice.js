@@ -11,6 +11,7 @@ export const noteSlice = createSlice({
   initialState: {
     notes: [],
     selectedImage: "",
+    nickname: "",
   },
   reducers: {
     addNote: (state, action) => {
@@ -44,6 +45,9 @@ export const noteSlice = createSlice({
     },
     selectImage: (state, action) => {
       state.selectedImage = action.payload;
+    },
+    setNickname: (state, action) => {
+      state.nickname = action.payload;
     },
   },
 });
