@@ -95,7 +95,7 @@ const Home = () => {
         }}
       >
         <Text style={{ textAlign: "center", fontSize: 20, color: "white" }}>
-          Add Book
+          Add Note
         </Text>
       </TouchableOpacity>
 
