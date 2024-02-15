@@ -18,8 +18,6 @@ const ImagePickerInput = () => {
       alert("Permission to access camera roll is required!");
       return;
     }
-    console.log("image");
-
     const pickerResult = await ImagePicker.launchImageLibraryAsync();
 
     const base64 = await FileSystem.readAsStringAsync(
