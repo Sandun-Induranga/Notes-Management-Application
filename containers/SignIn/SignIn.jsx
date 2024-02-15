@@ -2,10 +2,12 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
 import { noteSlice } from "../../redux/noteSlice";
+import { useNavigation } from "@react-navigation/native";
 
 const SignIn = () => {
   const nickname = useSelector((state) => state.notes.nickname);
   const dispatch = useAppDispatch();
+  const navigate = useNavigation();
   return (
     <View
       style={{
@@ -52,7 +54,9 @@ const SignIn = () => {
           }}
         />
         <TouchableOpacity
-          onPress={() => {}}
+          onPress={() => {
+            navigate.navigate("Home");
+          }}
           style={{
             backgroundColor: "lightblue",
             paddingHorizontal: 20,

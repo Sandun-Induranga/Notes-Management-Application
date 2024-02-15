@@ -55,7 +55,7 @@ const Home = () => {
             textAlign: "center",
           }}
         >
-          {nickname}
+          {"Hi, " + nickname}
         </Text>
       </View>
       <TouchableOpacity
